@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Learning Homepage</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet"> 
+    
+    <link href="starter-template.css" rel="stylesheet">
+    
+
+
+    <!-- Konva JS plugins -->
+    <script src="https://unpkg.com/konva@9.2.1/konva.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+    />
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <!-- Enable library functionality -->
+    <script>
+        $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+    </script>
+
+  </head>
+
+  <body style="background-color: whitesmoke; padding-right:10px">
+
+    <nav class="navbar navbar-expand-md fixed-top border-bottom border-light navbar-light" style="background-color:white">
+      <a class="navbar-brand" href="index.html">
+        <img src="/assets/img/logo.svg.svg" width="60" height="60" class="d-inline-block align-middle" alt="">
+        Home
+      </a>
+
+  
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="Learning3.html">Learning <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">UML Builder</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        
+      
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item"><a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"> <span class="fas fa-user"></span> Sign Up</a> </li>
+
+
+     
+        </ul>
+
+        <form class="form-inline my-2 my-lg-1">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+
+
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar border-top border-dark" id ="bar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Learning Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Introduction
+                </a>
+              </li>
+
+              
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span >Chapter 1: Shapes</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+
+
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Squares
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Classes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Inheritance
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Structure not behaviour
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Chapter 2: Relationships</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Aggregation
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Dependency
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Composition
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Styles
+                </a>
+              </li>
+            </ul>
+
+            
+          </div>
+
+          
+
+
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3" style="padding-right: 0;" >
+
+          
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Squares</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+              </button>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center mb-3"><strong style="margin-right: 20px;" >Tasks</strong><button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> </div>
+
+          <div class="jumbotron text-start" style="padding:20px">
+            Morbi nec tortor vulputate, fringilla turpis quis, ultricies lorem. Cras at mi blandit nisi pharetra venenatis dignissim non risus. Ut faucibus eros eget massa pellentesque dignissim. Mauris euismod vel elit vel faucibus. Sed augue nisl, feugiat in faucibus quis, sollicitudin id orci. Fusce volutpat, turpis id aliquet mollis, augue orci sagittis erat, id fermentum arcu enim sed neque. Nulla porttitor sem sit amet ipsum consequat, nec auctor sapien feugiat. Aliquam leo eros, luctus dictum lectus at, placerat aliquet nulla.
+          </div>
+          
+          <!-- example -->
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col" style="background-color: white; border: 3px solid white; border-radius: 20px; color:black; ">
+                <p><strong style="font-size: 30px;">Example</strong></p>
+
+                
+                <div  id="editor-container" style="max-height: 100px;">
+                  That is <u>some</u> <span style="color: red"> styled text</span> on
+                  <strong>canvas</strong>!
+                  <h2 class="dd">What do  think about it?</h2>
+                  <textarea placeholder="FUCK" id="abs">Im gay</textarea>
+                </div>
+
+                
+                <div id="container" class = "border border-dark" style= "min-height: 500px; overflow: hidden;"></div>
+                <script>
+                  function spawnRectangle(){
+                    var rectangle = new Konva.Group({
+                        x: 25, 
+                        y: 25, 
+                        width: 130,
+                        height: 25,
+           
+                        draggable: true,
+                    }); 
+
+                    rectangle.add(new Konva.Rect({
+                        width: 130,
+                        height: 25,
+                        fill: 'lightblue'
+                    }));
+
+                    rectangle.add(new Konva.Text({
+                        text:'123',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center'
+                    }));
+                    rectangleLayer.add(rectangle);
+                    stage.add(rectangleLayer);
+                }
+
+                  var quill = new Quill('#editor-container', {
+                    modules: {
+                      toolbar: [
+                        [{ header: [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        ['image', 'code-block'],
+                      ],
+                    },
+                    placeholder: 'Compose an epic...',
+                    theme: 'snow', // or 'bubble'
+                  });
+                  
+                  var width = document.getElementById("container").offsetWidth;
+                  var height = document.getElementById("container").offsetHeight;
+            
+                  var stage = new Konva.Stage({
+                    container: 'container',
+                    width: width,
+                    height: height,
+                  });
+            
+                  const layer = new Konva.Layer();
+                  stage.add(layer);
+            
+                  const shape = new Konva.Image({
+                    x: 10,
+                    y: 10,
+                    draggable: true,
+                    stroke: 'red',
+                    scaleX: 1 / window.devicePixelRatio,
+                    scaleY: 1 / window.devicePixelRatio,
+                  });
+                  layer.add(shape);
+            
+                  function renderText() {
+                    
+                    // convert DOM into image
+                    html2canvas(document.querySelector('.ql-editor'), {
+                      backgroundColor: 'rgba(0,0,0,0)',
+                    }).then((canvas) => {
+                      // show it inside Konva.Image
+                      shape.image(canvas);
+                    });
+                  }
+            
+                  // batch updates, so we don't render text too frequently
+                  var timeout = null;
+                  function requestTextUpdate() {
+                    if (timeout) {
+                      return;
+                    }
+                    timeout = setTimeout(function () {
+                      timeout = null;
+                      renderText();
+                    }, 500);
+                  }
+            
+                  // render text on all changes
+                  quill.on('text-change', requestTextUpdate);
+                  // make initial rendering
+                  renderText();
+
+                  spawnRectangle();
+
+                  var rectangle = new Konva.Group({
+                        x: 25, 
+                        y: 25, 
+                        width: 130,
+                        height: 25,
+           
+                        draggable: true,
+                    }); 
+
+                    rectangle.add(new Konva.Rect({
+                        width: 130,
+                        height: 25,
+                        fill: 'lightblue'
+                    }));
+
+                    rectangle.add(new Konva.Text({
+                        text:'123',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center'
+                    }));
+                    rectangleLayer.add(rectangle);
+                    stage.add(rectangleLayer);
+                </script>
+
+
+              </div>
+
+            </div>
+
+
+          </div>
+          <!-- END example-->
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+  </body>
+</html>
