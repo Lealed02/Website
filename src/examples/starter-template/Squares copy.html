@@ -228,7 +228,7 @@
                   var height = document.getElementById("container").offsetHeight;
                   var mobile = false;
 
-                  var object = []
+                  var object = [];
             
                   var stage = new Konva.Stage({
                     container: 'container',
@@ -241,17 +241,7 @@
                   var rectY = stage.height() / 2 - 25;
                   
                     
-                  var complexText = new Konva.Text({
-                    x: 20,
-                    y: 60,
-                    text: "COMPLEX TEXT\n\nAll the world's a stage, and all the men and women merely players. They have their exits and their entrances.",
-                    fontSize: 18,
-                    fontFamily: 'Calibri',
-                    fill: '#555',
-                    width: 300,
-                    padding: 20,
-                    align: 'center',
-                  });
+
                   var box = new Konva.Rect({
                     x: rectX,
                     y: rectY,
@@ -272,8 +262,121 @@
                   });
             
                   layer.add(box);
-                  layer.add(complexText);
                   
+
+                  
+                  var umlClass = new Konva.Group({
+                        x: 200, 
+                        y: 200, 
+                        width: 130,
+                        height: 25,
+                        name: 'rect',
+                        draggable: true,
+                        
+                    }); 
+
+                  var umlHeader = new Konva.Rect({
+                        width: 130,
+                        height: 25,
+                        fill: 'lightblue',
+                        name: 'umlChild',
+                    });
+
+                  var umlMethods = new Konva.Rect({
+                      width: 130,
+                      height: 25,
+                      fill: 'red',
+                      y:25,
+                      name: 'umlChild',
+                  });
+                  
+                  var umlAttributes = new Konva.Rect({
+                      width: 130,
+                      height: 25,
+                      fill: 'green',
+                      y:25,
+                      name: 'umlChild',
+                  });
+
+                  var umlHeaderText = new Konva.Text({
+                        text:'UML Class',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                    });
+
+                    var umlMethodText = new Konva.Text({
+                        text:'UML Methods',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                    });
+
+                    var umlAttributeText = new Konva.Text({
+                        text:'UML Attributes',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                    });
+
+
+
+
+
+
+                    console.log(umlHeaderText.attrs)
+                    console.log(umlHeaderText.height())
+
+                  function renderClass() {
+
+                    // Render widths
+                    var width;
+                    
+
+                    // Render class header
+                    umlHeaderText.width(umlHeader.width());
+                    umlHeader.height(umlHeaderText.height());
+
+
+                    // Render class methods
+                    umlMethods.y(umlHeader.height());
+                    umlMethodText.y(umlMethods.y())
+                    umlMethodText.width(umlMethods.width())
+                    umlMethods.height(umlMethodText.height())
+                    
+
+                    umlAttributes.y(umlMethods.y() + umlMethods.height())
+                    umlAttributeText.y(umlAttributes.y())
+                    umlAttributeText.width(umlAttributes.width())
+
+                    // Render excess height
+                    
+                  }
+
+                  umlClass.add(umlHeader)
+                  umlClass.add(umlHeaderText)
+                  umlClass.add(umlMethods)
+                  umlClass.add(umlMethodText)
+                  umlClass.add(umlAttributes)
+                  umlClass.add(umlAttributeText)
+                  
+                  renderClass()
+                  layer.add(umlClass)
+                  //renderClass()
+
+
 
               
 
@@ -302,16 +405,166 @@
                         align: 'center',
                     }));
 
+
+
+                    var tr = new Konva.Transformer();
+                    layer.add(tr);
+                    tr.nodes([]);
                     layer.add(rectangle)
                     //rectangleLayer.add(rectangle);
                     //stage.add(rectangleLayer);
 
                     stage.add(layer);
+                    var selectionRectangle = new Konva.Rect({
+                    fill: 'rgba(0,0,255,0.5)',
+                    visible: false,
+                  });
+                  layer.add(selectionRectangle);
 
-                    function renderParts() {
+                    var x1, y1, x2, y2;
+                  stage.on('mousedown touchstart', (e) => {
+                    // do nothing if we mousedown on any shape
+                    if (e.target !== stage) {
+                      return;
+                    }
+                    e.evt.preventDefault();
+                    x1 = stage.getPointerPosition().x;
+                    y1 = stage.getPointerPosition().y;
+                    x2 = stage.getPointerPosition().x;
+                    y2 = stage.getPointerPosition().y;
+
+                    selectionRectangle.visible(true);
+                    selectionRectangle.width(0);
+                    selectionRectangle.height(0);
+                  });
+
+                  stage.on('mousemove touchmove', (e) => {
+                    // do nothing if we didn't start selection
+                    if (!selectionRectangle.visible()) {
+                      return;
+                    }
+                    e.evt.preventDefault();
+                    x2 = stage.getPointerPosition().x;
+                    y2 = stage.getPointerPosition().y;
+
+                    selectionRectangle.setAttrs({
+                      x: Math.min(x1, x2),
+                      y: Math.min(y1, y2),
+                      width: Math.abs(x2 - x1),
+                      height: Math.abs(y2 - y1),
+                    });
+                  });
+
+                  stage.on('mouseup touchend', (e) => {
+                    // do nothing if we didn't start selection
+                    if (!selectionRectangle.visible()) {
+                      return;
+                    }
+                    e.evt.preventDefault();
+                    // update visibility in timeout, so we can check it in click event
+                    setTimeout(() => {
+                      selectionRectangle.visible(false);
+                    });
+
+                    var shapes = stage.find('.rect');
+                    var box = selectionRectangle.getClientRect();
+                    var selected = shapes.filter((shape) =>
+                      Konva.Util.haveIntersection(box, shape.getClientRect())
+                    );
+                    tr.nodes(selected);
+                  });
+
+                  // clicks should select/deselect shapes
+                  stage.on('click tap', function (e) {
+                    // if we are selecting with rect, do nothing
+                    if (selectionRectangle.visible()) {
+                      return;
+                    }
+
+                    // if click on empty area - remove all selections
+                    if (e.target === stage) {
+                      tr.nodes([]);
+                      return;
+                    }
+
+                    // Check if the UmlClass was clicked, else do nothing
+                    if (e.target.hasName('umlChild')) {
+                      console.log(e.target)
+                      e.target = e.target.parent
+                    } {
+                      if (!e.target.hasName('rect')) {
+                      
+                      return;
+                    }
 
                     }
-                    
+   
+
+                    // do we pressed shift or ctrl?
+                    const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
+                    const isSelected = tr.nodes().indexOf(e.target) >= 0;
+
+                    if (!metaPressed && !isSelected) {
+                      // if no key pressed and the node is not selected
+                      // select just one
+                      tr.nodes([e.target]);
+                    } else if (metaPressed && isSelected) {
+                      // if we pressed keys and node was selected
+                      // we need to remove it from selection:
+                      const nodes = tr.nodes().slice(); // use slice to have new copy of array
+                      // remove node from array
+                      nodes.splice(nodes.indexOf(e.target), 1);
+                      tr.nodes(nodes);
+                    } else if (metaPressed && !isSelected) {
+                      // add the node into selection
+                      const nodes = tr.nodes().concat([e.target]);
+                      tr.nodes(nodes);
+                    }
+                  });
+
+                  //umlHeaderText.on('dblclick dbltap', () => {
+
+                  umlHeaderText.on('dblclick dbltap', (e) => {
+        // create textarea over canvas with absolute position
+
+        // first we need to find position for textarea
+        // how to find it?
+
+        // at first lets find position of text node relative to the stage:
+        var textPosition = e.target.getAbsolutePosition();
+
+        // then lets find position of stage container on the page:
+        var stageBox = stage.container().getBoundingClientRect();
+
+        // so position of textarea will be the sum of positions above:
+        var areaPosition = {
+          x: stageBox.left + textPosition.x,
+          y: stageBox.top + textPosition.y,
+        };
+
+        // create textarea and style it
+        var textarea = document.createElement('textarea');
+        document.body.appendChild(textarea);
+
+        textarea.value = e.target.text();
+        textarea.style.position = 'absolute';
+        textarea.style.top = areaPosition.y + 'px';
+        textarea.style.left = areaPosition.x + 'px';
+        textarea.style.width = e.target.width();
+
+        var targetField = e.target
+
+        textarea.focus();
+
+        textarea.addEventListener('keydown', function (e) {
+          // hide on enter
+          if (e.keyCode === 13) {
+            targetField.text(textarea.value);
+            document.body.removeChild(textarea);
+            renderClass()
+          }
+        });
+      });
                 </script>
 
 

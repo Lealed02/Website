@@ -360,6 +360,7 @@
                     umlAttributes.y(umlMethods.y() + umlMethods.height())
                     umlAttributeText.y(umlAttributes.y())
                     umlAttributeText.width(umlAttributes.width())
+                    umlAttributes.height(umlAttributeText.height())
 
                     // Render excess height
                     
@@ -489,7 +490,7 @@
 
                     // Check if the UmlClass was clicked, else do nothing
                     if (e.target.hasName('umlChild')) {
-                      console.log("WOOO")
+                      console.log(e.target)
                       e.target = e.target.parent
                     } {
                       if (!e.target.hasName('rect')) {
@@ -522,8 +523,97 @@
                     }
                   });
 
-                
+                  //umlHeaderText.on('dblclick dbltap', () => {
+                  
+                    editField = (e) => {
+                      // create textarea over canvas with absolute position
+
+        // first we need to find position for textarea
+        // how to find it?
+
+        // at first lets find position of text node relative to the stage:
+        var textPosition = e.target.getAbsolutePosition();
+
+// then lets find position of stage container on the page:
+var stageBox = stage.container().getBoundingClientRect();
+
+// so position of textarea will be the sum of positions above:
+var areaPosition = {
+  x: stageBox.left + textPosition.x,
+  y: stageBox.top + textPosition.y,
+};
+
+// create textarea and style it
+var textarea = document.createElement('textarea');
+document.body.appendChild(textarea);
+
+textarea.value = e.target.text();
+textarea.style.position = 'absolute';
+textarea.style.top = areaPosition.y + 'px';
+textarea.style.left = areaPosition.x + 'px';
+textarea.style.width = e.target.width();
+
+var targetField = e.target
+
+textarea.focus();
+
+textarea.addEventListener('keydown', function (e) {
+  // hide on enter
+  if (e.keyCode === 13) {
+    targetField.text(textarea.value);
+    document.body.removeChild(textarea);
+    renderClass()
+  }
+});
+}
                     
+
+                    umlHeaderText.on('dblclick dbltap', (e) => editField(e))
+                    umlAttributeText.on('dblclick dbltap', (e) => editField(e))
+                    umlMethodText.on('dblclick dbltap', (e) => editField(e))
+
+
+                  umlHeaderText.on('dblclick dbltap', (e) => {
+        // create textarea over canvas with absolute position
+
+        // first we need to find position for textarea
+        // how to find it?
+
+        // at first lets find position of text node relative to the stage:
+        var textPosition = e.target.getAbsolutePosition();
+
+        // then lets find position of stage container on the page:
+        var stageBox = stage.container().getBoundingClientRect();
+
+        // so position of textarea will be the sum of positions above:
+        var areaPosition = {
+          x: stageBox.left + textPosition.x,
+          y: stageBox.top + textPosition.y,
+        };
+
+        // create textarea and style it
+        var textarea = document.createElement('textarea');
+        document.body.appendChild(textarea);
+
+        textarea.value = e.target.text();
+        textarea.style.position = 'absolute';
+        textarea.style.top = areaPosition.y + 'px';
+        textarea.style.left = areaPosition.x + 'px';
+        textarea.style.width = e.target.width();
+
+        var targetField = e.target
+
+        textarea.focus();
+
+        textarea.addEventListener('keydown', function (e) {
+          // hide on enter
+          if (e.keyCode === 13) {
+            targetField.text(textarea.value);
+            document.body.removeChild(textarea);
+            renderClass()
+          }
+        });
+      });
                 </script>
 
 
