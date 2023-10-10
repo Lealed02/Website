@@ -227,6 +227,8 @@
                   var width = document.getElementById("container").offsetWidth;
                   var height = document.getElementById("container").offsetHeight;
                   var mobile = false;
+
+                  var object = [];
             
                   var stage = new Konva.Stage({
                     container: 'container',
@@ -273,6 +275,17 @@
                   layer.add(complexText);
                   
 
+                  
+                  var UMLClass = new Konva.Group({
+                        x: 25, 
+                        y: 25, 
+                        width: 130,
+                        height: 25,
+           
+                        draggable: true,
+                    }); 
+
+                
               
 
                   var rectangle = new Konva.Group({
@@ -300,11 +313,24 @@
                         align: 'center',
                     }));
 
+
+
+
                     layer.add(rectangle)
                     //rectangleLayer.add(rectangle);
                     //stage.add(rectangleLayer);
 
                     stage.add(layer);
+
+                    box.on('dragstart', function () {
+                    box.fill("#0026ff");
+                    });
+
+                    function a () {
+
+                    }
+
+                
                     
                 </script>
 

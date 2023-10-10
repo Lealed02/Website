@@ -217,63 +217,18 @@
           <div class="container-fluid">
             <div class="row">
 
-              <div class="col" style="background-color: white; border: 3px solid white; border-radius: 20px; color:black; ">
+              <div class="col" style="background-color: rgb(88, 88, 88); border: 3px solid dimgray; border-radius: 20px; color:white; ">
                 <p><strong style="font-size: 30px;">Example</strong></p>
+                <P>C</P>
 
                 
-                <div  id="editor-container" style="max-height: 100px;">
-                  That is <u>some</u> <span style="color: red"> styled text</span> on
-                  <strong>canvas</strong>!
-                  <h2 class="dd">What do  think about it?</h2>
-                  <textarea placeholder="FUCK" id="abs">Im gay</textarea>
-                </div>
-
-                
-                <div id="container" class = "border border-dark" style= "min-height: 500px; overflow: hidden;"></div>
+                <div class = "border" style= "min-height: 500px; overflow: hidden;" id="container"></div>
                 <script>
-                  function spawnRectangle(){
-                    var rectangle = new Konva.Group({
-                        x: 25, 
-                        y: 25, 
-                        width: 130,
-                        height: 25,
-           
-                        draggable: true,
-                    }); 
-
-                    rectangle.add(new Konva.Rect({
-                        width: 130,
-                        height: 25,
-                        fill: 'lightblue'
-                    }));
-
-                    rectangle.add(new Konva.Text({
-                        text:'123',
-                        fontSize: 18,
-                        fontFamily: 'Calibri',
-                        fill: '#000',
-                        width: 130,
-                        padding: 5,
-                        align: 'center'
-                    }));
-                    rectangleLayer.add(rectangle);
-                    stage.add(rectangleLayer);
-                }
-
-                  var quill = new Quill('#editor-container', {
-                    modules: {
-                      toolbar: [
-                        [{ header: [1, 2, false] }],
-                        ['bold', 'italic', 'underline'],
-                        ['image', 'code-block'],
-                      ],
-                    },
-                    placeholder: 'Compose an epic...',
-                    theme: 'snow', // or 'bubble'
-                  });
-                  
                   var width = document.getElementById("container").offsetWidth;
                   var height = document.getElementById("container").offsetHeight;
+                  var mobile = false;
+
+                  var object = []
             
                   var stage = new Konva.Stage({
                     container: 'container',
@@ -281,48 +236,46 @@
                     height: height,
                   });
             
-                  const layer = new Konva.Layer();
-                  stage.add(layer);
-            
-                  const shape = new Konva.Image({
-                    x: 10,
-                    y: 10,
-                    draggable: true,
-                    stroke: 'red',
-                    scaleX: 1 / window.devicePixelRatio,
-                    scaleY: 1 / window.devicePixelRatio,
-                  });
-                  layer.add(shape);
-            
-                  function renderText() {
+                  var layer = new Konva.Layer();
+                  var rectX = stage.width() / 2 - 50;
+                  var rectY = stage.height() / 2 - 25;
+                  
                     
-                    // convert DOM into image
-                    html2canvas(document.querySelector('.ql-editor'), {
-                      backgroundColor: 'rgba(0,0,0,0)',
-                    }).then((canvas) => {
-                      // show it inside Konva.Image
-                      shape.image(canvas);
-                    });
-                  }
+                  var complexText = new Konva.Text({
+                    x: 20,
+                    y: 60,
+                    text: "COMPLEX TEXT\n\nAll the world's a stage, and all the men and women merely players. They have their exits and their entrances.",
+                    fontSize: 18,
+                    fontFamily: 'Calibri',
+                    fill: '#555',
+                    width: 300,
+                    padding: 20,
+                    align: 'center',
+                  });
+                  var box = new Konva.Rect({
+                    x: rectX,
+                    y: rectY,
+                    width: 300,
+                    height: 150,
+                    fill: '#00D2FF',
+                    stroke: 'black',
+                    strokeWidth: 4,
+                    draggable: true,
+                  });
             
-                  // batch updates, so we don't render text too frequently
-                  var timeout = null;
-                  function requestTextUpdate() {
-                    if (timeout) {
-                      return;
-                    }
-                    timeout = setTimeout(function () {
-                      timeout = null;
-                      renderText();
-                    }, 500);
-                  }
+                  // add cursor styling
+                  box.on('mouseover', function () {
+                    document.body.style.cursor = 'grab';
+                  });
+                  box.on('mouseout', function () {
+                    document.body.style.cursor = 'default';
+                  });
             
-                  // render text on all changes
-                  quill.on('text-change', requestTextUpdate);
-                  // make initial rendering
-                  renderText();
+                  layer.add(box);
+                  layer.add(complexText);
+                  
 
-                  spawnRectangle();
+              
 
                   var rectangle = new Konva.Group({
                         x: 25, 
@@ -336,20 +289,29 @@
                     rectangle.add(new Konva.Rect({
                         width: 130,
                         height: 25,
-                        fill: 'lightblue'
+                        fill: 'lightblue',
                     }));
 
                     rectangle.add(new Konva.Text({
-                        text:'123',
+                        text:'1sdaaaaaaaaaaaaaaaaaaaaaaaaa23',
                         fontSize: 18,
                         fontFamily: 'Calibri',
                         fill: '#000',
                         width: 130,
                         padding: 5,
-                        align: 'center'
+                        align: 'center',
                     }));
-                    rectangleLayer.add(rectangle);
-                    stage.add(rectangleLayer);
+
+                    layer.add(rectangle)
+                    //rectangleLayer.add(rectangle);
+                    //stage.add(rectangleLayer);
+
+                    stage.add(layer);
+
+                    function renderParts() {
+
+                    }
+                    
                 </script>
 
 
