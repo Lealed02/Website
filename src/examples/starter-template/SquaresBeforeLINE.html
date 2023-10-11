@@ -472,10 +472,6 @@ textarea.addEventListener('keydown', function (e) {
 
                 genArrow()
                 genArrow()
-                var umlRelationship = new Konva.Group({
-                    name: 'rect',
-                    draggable: true,
-                }); 
 
 
                 function genClass() {
@@ -582,75 +578,25 @@ textarea.addEventListener('keydown', function (e) {
                 var b = genClass()
                 genClass()
 
-                var quadLinePath = new Konva.Line({
-        dash: [10, 10, 0, 10],
-        strokeWidth: 3,
-        stroke: 'black',
-        lineCap: 'round',
-        id: 'quadLinePath',
-        opacity: 0.3,
-        points: [0, 0],
-      });
-      layer.add(quadLinePath);
+ 
 
 
-      var quad = {
-        start: buildAnchor(60, 30),
-        control: buildAnchor(240, 110),
-        end: buildAnchor(80, 160),
-      };
+                const obj1 = new Konva.Circle({})
+                const obj2= new Konva.Circle({  });
 
-      function buildAnchor(x, y) {
-        var anchor = new Konva.Circle({
-          x: x,
-          y: y,
-          radius: 20,
-          stroke: '#666',
-          fill: '#ddd',
-          strokeWidth: 2,
-          draggable: true,
-        });
-        umlRelationship.add(anchor);
+                const line = new Konva.Line({  });
 
-        // add hover styling
-        anchor.on('mouseover', function () {
-          document.body.style.cursor = 'pointer';
-          this.strokeWidth(4);
-        });
-        anchor.on('mouseout', function () {
-          document.body.style.cursor = 'default';
-          this.strokeWidth(2);
-        });
+                obj1.on('dragmove', updateLine);
+                obj2.on('dragmove', updateLine);
 
-        //anchor.on('dragmove', function () {
-        //  updateDottedLines();
-        //});
+                function updateLine() {
+                  line.points([obj1.x(), obj1.y(), obj2.x(), obj2.y]);
+                  layer.batchDraw();
+                }
 
-        return anchor;
-      }
-
-
-                var quadraticLine = new Konva.Shape({
-                stroke: 'red',
-                
-                strokeWidth: 4,
-                sceneFunc: (ctx, shape) => {
-                  ctx.beginPath();
-                  ctx.moveTo(quad.start.x(), quad.start.y());
-                  ctx.quadraticCurveTo(
-                    quad.control.x(),
-                    quad.control.y(),
-                    quad.end.x(),
-                    quad.end.y()
-                  );
-                  ctx.fillStrokeShape(shape);
-                },
-              });
-              //layer.add(quadraticLine);
-
-       
-                umlRelationship.add(quadraticLine)
-                layer.add(umlRelationship)
+                layer.add(obj1)
+                layer.add(obj2)
+                layer.add(line)
 
                                   
                 </script>
