@@ -1,9 +1,33 @@
 body {
  padding-top: 80px;
+ background-color: #F9FCFF;
 }
 
-.navbar {
+
+#nav {
   min-height: 80px;
+  max-height:80px;
+  /*max-height: 80px;*/
+  background-color: #C5D5EA;
 }
 
 
+@media  screen and (max-width: 767px) {
+
+  #nav {
+    min-height: 80px;
+    max-height:none;
+  }
+
+}
+
+
+.headerIcons svg{
+
+  width:100%;
+  height:100%;
+}
+
+.FUCK:hover {
+  color:black
+}

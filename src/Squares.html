@@ -10,21 +10,23 @@
 
     <title>Learning Homepage</title>
 
-    <!-- Bootstrap  CSS -->
+    <!-- Bootstrap CSS -->
     <link href="../assets/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Page css -->
     <link href="./css/global.css" rel="stylesheet"> 
     <link href="./css/learning.css" rel="stylesheet"> 
+    <link href="./css/interactive.css" rel="stylesheet"> 
+    
     <!-- Konva must be imported before page loaded -->
     <script src="../assets/konva.min.js"></script>
 
 
   </head>
 
-  <body style="background-color: whitesmoke; padding-right:10px; padding-bottom: 20px;">
+  <body>
 
-    <nav class="navbar navbar-expand-md fixed-top border-bottom border-light navbar-light" style="background-color:white">
+    <nav class="navbar navbar-expand-md fixed-top border-bottom border-light navbar-light" id="nav">
       <a class="navbar-brand" href="index.html">
         <img src="./img/bootstrap-solid.svg" width="60" height="60" class="d-inline-block align-middle" alt="">
         Home
@@ -74,7 +76,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar border-top border-dark" id ="bar">
+        <nav class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar border-top " id ="sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -197,12 +199,37 @@
           <div class="container-fluid">
             <div class="row">
 
-              <div class="col" style="background-color: rgb(88, 88, 88); border: 3px solid dimgray; border-radius: 20px; color:white; ">
+              <div class="col" style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
                 <p><strong style="font-size: 30px;">Example</strong></p>
                 <P>Here you see three classes, try and connect them together with the relationship lines and give them a name!</P>
 
+                <div class = "d-flex justify-content-between pl-3 pr-3" style="background-color: whitesmoke; border-radius: 20px 20px 0 0; color:rgb(71, 71, 71)">
+                  
+                  <h1>Title</h1>
+                  <span class="mr-auto align-self-center ml-2" data-feather="edit"></span>
+
+                  
+                  <div class="headerIcons FUCK align-self-center mr-2" > <!-- just to place some constraints -->
+                    <i data-feather="save" alt="Container"></i>
+                  </div>
+                  
+                  <h5 class="align-self-center mr-4 FUCK">Save</h5>
+                  <div class="headerIcons align-self-center mr-1" > <!-- just to place some constraints -->
+                    <i data-feather="folder" alt="Container"></i>
+                  </div>
+                  <h5 class="align-self-center mr-3">Load</h5>
+                </div>
+
+
                 
-                <div class = "border" style= "min-height: 500px; overflow: hidden;" id="container"></div>
+                <div class = "border" style= "min-height: 500px; overflow: hidden; background-color: whitesmoke;" id="container"></div>
+                <div class = "d-flex pl-3 pr-3" style="background-color: whitesmoke; border-radius: 0 0 20px 20px;">
+                  <h3 class="mr-3">Entities </h3> <h3 class="mr-auto">Relationships</h3>
+
+                  <div class="headerIcons align-self-center mr-1" > <!-- just to place some constraints -->
+                    <i data-feather="share" alt="Container"></i>
+                  </div>
+                  <h5 class="align-self-center mr-3">Share</h5>
                 <script>
 
                 
@@ -271,6 +298,11 @@
 
                   var x1, y1, x2, y2;
                   stage.on('mousedown touchstart', (e) => {
+                    console.log(e.target)
+                    if (e.target.hasName("anchor") || e.target.attrs.relationship == true) {
+                      return;
+                    }
+                    hideAllAnchors()
                     // do nothing if we mousedown on any shape
                     if (e.target !== stage) {
                       return;
@@ -603,6 +635,7 @@ textarea.addEventListener('keydown', function (e) {
               var umlRelationship = new Konva.Group({
                     name: 'rect',
                     draggable: true,
+                    relationship: true,
 
                 }); 
 
@@ -612,6 +645,7 @@ textarea.addEventListener('keydown', function (e) {
               function buildAnchor(x, y) {
                 var anchor = new Konva.Circle({
                   x: x,
+                  name:"anchor",
                   y: y,
                   radius: 20,
                   stroke: '#666',
@@ -619,6 +653,8 @@ textarea.addEventListener('keydown', function (e) {
                   strokeWidth: 2,
                   draggable: true,
                 });
+
+                anchor.visible(false)
                 
 
                 // add hover styling
@@ -667,12 +703,24 @@ textarea.addEventListener('keydown', function (e) {
                   quad.end.hide()
                 });
 
-
+                umlRelationships.push(umlRelationship)
                 layer.add(umlRelationship)
                 }
 
                 genRelationship()
                 genRelationship()
+
+
+                function hideAllAnchors() {
+                  for (relationship in umlRelationships) {
+                    console.log(umlRelationships[relationship])
+                    umlRelationships[relationship].attrs.anchors.start.visible(false)
+                    umlRelationships[relationship].attrs.anchors.control.visible(false)
+                    umlRelationships[relationship].attrs.anchors.end.visible(false)
+                  }
+                }
+
+                hideAllAnchors()
 
 
 

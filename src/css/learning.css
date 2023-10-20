@@ -23,7 +23,9 @@
 }
 
 
-
+body {
+  padding-right:10px;
+}
 /*
  * Sidebar
  */
@@ -78,7 +80,7 @@
  */
 
 
-#bar {
+#sidebar {
   margin-top: 79.5px;
 }
 
@@ -108,12 +110,11 @@
 
 
 .chapterEntry {
-  padding-left:0;
-  padding-right:0;
+
 }
 
 .chapterEntry div {
-  padding:none;
+
 
 }
 
@@ -130,16 +131,10 @@
   margin-right: 50px; display: block; padding: 50px; float:left
 }
 
-.progressTracker {
-
-}
 
 @media  screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
 
   .progressTrackerContainer {
-    display: block; float:left
+      float:left
   }
 }
