@@ -58,8 +58,8 @@
         
       
         <ul class="navbar-nav navbar-right">
-          <li class="nav-item"><a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"> <span class="fas fa-user"></span> Sign Up</a> </li>
+          <li class="nav-item"><a class="nav-link" href="./404.html"><span class="fas fa-sign-in-alt"></span> Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="./404.html"> <span class="fas fa-user"></span> Sign Up</a> </li>
 
 
      
@@ -67,7 +67,7 @@
 
         <form class="form-inline my-2 my-lg-1">
           <input class="form-control mr-sm-2" type="text" placeholder="Search..." aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" href="./404.html" type="submit">Search</button>
         </form>
       </div>
 
@@ -201,24 +201,18 @@
 
               <div class="col" style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
                 <p><strong style="font-size: 30px;">Example</strong></p>
-                <P>Here you see three classes, try and connect them together with the relationship lines and give them a name!</P>
+                <P>Try to match the correct attributes to each class. Submit when you feel you're ready!</P>
 
                 <div class = "d-flex justify-content-between pl-3 pr-3" style="background-color: whitesmoke; border-radius: 20px 20px 0 0; color:rgb(71, 71, 71)">
                   
-                  <h1>Title</h1>
-                  <span class="mr-auto align-self-center ml-2" data-feather="edit"></span>
+                  <h1>Exercise 1</h1>
+              </div>
+              
 
                   
-                  <div class="headerIcons FUCK align-self-center mr-2" > <!-- just to place some constraints -->
-                    <i data-feather="save" alt="Container"></i>
-                  </div>
+                 
                   
-                  <h5 class="align-self-center mr-4 FUCK">Save</h5>
-                  <div class="headerIcons align-self-center mr-1" > <!-- just to place some constraints -->
-                    <i data-feather="folder" alt="Container"></i>
-                  </div>
-                  <h5 class="align-self-center mr-3">Load</h5>
-                </div>
+    
 
 
                 
@@ -230,31 +224,31 @@
                   <p style="font-size: 2em;" class="mr-3">Entities </p> 
                   <p style="font-size: 2em;" class="mr-auto">Relationships</p>
                   <br>
-                  <div class="headerIcons mr-1" > <!-- just to place some constraints -->
+                  <div class="headerIcons mr-1" style="height:20px; width:20px;"> <!-- just to place some constraints -->
                     <i data-feather="share" alt="Container"></i>
                   </div>
-                  <p class=" mr-3" style="font-size: 1em;"> Share</p>
+                  <p class=" mr-3" style="font-size: 2em;"> Share</p>
                 <script>
 
-                
+                  const exercise = {}
 
                   // Setup canvas 
-                  var width = document.getElementById("container").offsetWidth;
-                  var height = document.getElementById("container").offsetHeight;
-                  var mobile = false;
+                  exercise.width = document.getElementById("container").offsetWidth;
+                  exercise.height = document.getElementById("container").offsetHeight;
+                  exercise.mobile = false;
 
-                  var umlClasses = [];
-                  var umlRelationships = [];
+                  exercise.umlClasses = [];
+                  exercise.umlRelationships = [];
+                  exercise.targetMethods = [];
+                  exercise.targetAttributes = []
             
-                  var stage = new Konva.Stage({
+                  exercise.stage = new Konva.Stage({
                     container: 'container',
-                    width: width,
-                    height: height,
+                    width: exercise.width,
+                    height: exercise.height,
                   });
             
-                  var layer = new Konva.Layer();
-                  var rectX = stage.width() / 2 - 50;
-                  var rectY = stage.height() / 2 - 25;
+                  exercise.layer = new Konva.Layer();
           
 
                   function renderClass(umlRawClass) {
@@ -269,226 +263,113 @@
                     umlClass.headerText.width(umlClass.header.width());
                     umlClass.header.height(umlClass.headerText.height());
 
-
+           
+               
                     // Render class methods
+                    if (umlClass.methods.attrs.droppedMethods.length > 0) {
+
+
+                      umlClass.methods.y(umlClass.header.height());
+                      
+                      height = 0
+                      realX = umlClass.methods.absolutePosition().x + 1
+                      realY = umlClass.methods.absolutePosition().y + height
+
+          
+                      objects = umlClass.methods.attrs.droppedMethods
+                      for (object in objects) {
+                        objects[object].attrs.rect.strokeWidth(0)
+                        objects[object].x(realX)
+                        objects[object].y(realY)
+                        
+                        
+                        height = height + objects[object].height()
+                        
+                        realY = umlClass.methods.absolutePosition().y + height
+                 
+                        }
+                        
+                        umlClass.methods.height(height)
+                        
+                    } else {
+                    
                     umlClass.methods.y(umlClass.header.height());
                     umlClass.methodText.y(umlClass.methods.y())
                     umlClass.methodText.width(umlClass.methods.width())
                     umlClass.methods.height(umlClass.methodText.height())
-                    
 
+                  }
+
+                  
+                    
+                    // Render class attributes
+                    if (umlClass.attributes.attrs.droppedMethods.length > 0) {
+                      umlClass.attributes.y(umlClass.methods.y() + umlClass.methods.height())
+
+                      objects = umlClass.attributes.attrs.droppedMethods
+
+                      height = 1
+                      realX = umlClass.attributes.absolutePosition().x + 1
+                      realY = umlClass.attributes.absolutePosition().y + height
+
+                      for (object in objects) {
+                        objects[object].attrs.rect.strokeWidth(0)
+                        objects[object].x(realX)
+                        objects[object].y(realY)
+                        objects[object].attrs.rect.cornerRadius(0)
+                        
+                        
+                        height = height + objects[object].height()
+                        objects[object].attrs.rect.height(objects[object].attrs.rect.height()-1)
+                        objects[object].height(objects[object].attrs.rect.height()-1)
+              
+                        objects[object].attrs.rect.width(128)
+                        
+                        realY = umlClass.attributes.absolutePosition().y + height
+                        
+                 
+                        }
+
+                        objects[object].attrs.rect.cornerRadius([0,0,10,10])
+
+
+
+                      umlClass.attributes.height(height)
+                    } else {
+
+                    
                     umlClass.attributes.y(umlClass.methods.y() + umlClass.methods.height())
                     umlClass.attributeText.y(umlClass.attributes.y())
                     umlClass.attributeText.width(umlClass.attributes.width())
                     umlClass.attributes.height(umlClass.attributeText.height())
-
+                  }
                     // Render excess height
+
+          
+
+
                     
                   }
 
 
-
-                    var tr = new Konva.Transformer();
-                    layer.add(tr);
-                    tr.nodes([]);
-
-                    stage.add(layer);
-                  
-                   var selectionRectangle = new Konva.Rect({
-                    fill: 'rgba(0,0,255,0.5)',
-                    visible: false,
-                  });
-                  layer.add(selectionRectangle);
-
-                  var x1, y1, x2, y2;
-                  stage.on('mousedown touchstart', (e) => {
-                    console.log(e.target)
-                    if (e.target.hasName("anchor") || e.target.attrs.relationship == true) {
-                      return;
-                    }
-                    hideAllAnchors()
-                    // do nothing if we mousedown on any shape
-                    if (e.target !== stage) {
-                      return;
-                    }
-                    e.evt.preventDefault();
-                    x1 = stage.getPointerPosition().x;
-                    y1 = stage.getPointerPosition().y;
-                    x2 = stage.getPointerPosition().x;
-                    y2 = stage.getPointerPosition().y;
-
-                    selectionRectangle.visible(true);
-                    selectionRectangle.width(0);
-                    selectionRectangle.height(0);
-                  });
-
-                  stage.on('mousemove touchmove', (e) => {
-                    // do nothing if we didn't start selection
-                    if (!selectionRectangle.visible()) {
-                      return;
-                    }
-                    e.evt.preventDefault();
-                    x2 = stage.getPointerPosition().x;
-                    y2 = stage.getPointerPosition().y;
-
-                    selectionRectangle.setAttrs({
-                      x: Math.min(x1, x2),
-                      y: Math.min(y1, y2),
-                      width: Math.abs(x2 - x1),
-                      height: Math.abs(y2 - y1),
-                    });
-                  });
-
-                  stage.on('mouseup touchend', (e) => {
-                    // do nothing if we didn't start selection
-                    if (!selectionRectangle.visible()) {
-                      return;
-                    }
-                    e.evt.preventDefault();
-                    // update visibility in timeout, so we can check it in click event
-                    setTimeout(() => {
-                      selectionRectangle.visible(false);
-                    });
-
-                    var shapes = stage.find('.rect');
-                    var box = selectionRectangle.getClientRect();
-                    var selected = shapes.filter((shape) =>
-                      Konva.Util.haveIntersection(box, shape.getClientRect())
-                    );
-                    tr.nodes(selected);
-                  });
-
-                  // clicks should select/deselect shapes
-                  stage.on('click tap', function (e) {
-                    // if we are selecting with rect, do nothing
-                    if (selectionRectangle.visible()) {
-                      return;
-                    }
-
-                    // if click on empty area - remove all selections
-                    if (e.target === stage) {
-                      tr.nodes([]);
-                      return;
-                    }
-
-                    // Check if the UmlClass was clicked, else do nothing
-                    if (e.target.hasName('umlChild')) {
-                      console.log(e.target)
-                      e.target = e.target.parent
-                    } {
-                      if (!e.target.hasName('rect')) {
-                      
-                      return;
-                    }
-
-                    }
-   
-
-                    // do we pressed shift or ctrl?
-                    const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
-                    const isSelected = tr.nodes().indexOf(e.target) >= 0;
-
-                    if (!metaPressed && !isSelected) {
-                      // if no key pressed and the node is not selected
-                      // select just one
-                      tr.nodes([e.target]);
-                    } else if (metaPressed && isSelected) {
-                      // if we pressed keys and node was selected
-                      // we need to remove it from selection:
-                      const nodes = tr.nodes().slice(); // use slice to have new copy of array
-                      // remove node from array
-                      nodes.splice(nodes.indexOf(e.target), 1);
-                      tr.nodes(nodes);
-                    } else if (metaPressed && !isSelected) {
-                      // add the node into selection
-                      const nodes = tr.nodes().concat([e.target]);
-                      tr.nodes(nodes);
-                    }
-                  });
+                  exercise.stage.add(exercise.layer);
 
 
-                   editField = (e) => {
-                      // create textarea over canvas with absolute position
-
-        // first we need to find position for textarea
-        // how to find it?
-
-        // at first lets find position of text node relative to the stage:
-        var textPosition = e.target.getAbsolutePosition();
-
-// then lets find position of stage container on the page:
-var stageBox = stage.container().getBoundingClientRect();
-
-// so position of textarea will be the sum of positions above:
-var areaPosition = {
-  x: stageBox.left + textPosition.x,
-  y: stageBox.top + textPosition.y,
-};
-
-// create textarea and style it
-var textarea = document.createElement('textarea');
-document.body.appendChild(textarea);
-
-textarea.value = e.target.text();
-if (!e.target.attrs.isHeader) {
-  e.target.align('left')
-}
-
-textarea.style.position = 'absolute';
-textarea.style.top = areaPosition.y + 'px';
-textarea.style.left = areaPosition.x + 'px';
-textarea.style.width = e.target.width();
-
-var targetField = e.target
-
-textarea.focus();
-
-textarea.addEventListener('keydown', function (e) {
-  // hide on enter
-  if (e.keyCode === 13) {
-    targetField.text(textarea.value);
-    document.body.removeChild(textarea);
-    renderClass(targetField.parent)
-  }
-});
-}
-                    
-
-                function genArrow() {
-                  var arrow = new Konva.Arrow({
-                            x: stage.width() / 4,
-                            y: stage.height() / 4,
-                            points: [0, 0, 100, 0],
-                            pointerLength: 20,
-                            pointerWidth: 20,
-                            fill: 'black',
-                            stroke: 'black',
-                            strokeWidth: 4,
-                            name:"rect",
-                            draggable:true,
-                          });
-                                      
-                        layer.add(arrow)
-                        return arrow
-                }
-
-                //genArrow()
-                //genArrow()
-
-
-
-
-
-                function genClass(headerColor) {
+                function genClass(headerColor, x, y, name, methods, attributes) {
 
                   if (typeof headerColor === 'undefined') { headerColor = 'white'; }
+                  if (typeof x === 'undefined') { x = 10; }
+                  if (typeof y === 'undefined') { y = 10; }
+
+                  if (typeof name === 'undefined') { name = 'UML Class'; }
+
                   var umlClass = new Konva.Group({
-                        x: 10, 
-                        y: 10, 
+                        x: x, 
+                        y: y, 
                         width: 130,
                         height: 25,
                         name: 'rect',
-                        draggable: true,
+                
                         stroke: 'black',
                         strokeWidth: 4,
                         
@@ -510,9 +391,15 @@ textarea.addEventListener('keydown', function (e) {
                       fill: '#FAFAFA',
                       y:25,
                       name: 'umlChild',
+                      droppedMethods:[],
+                      childOf:umlClass,
                       stroke: 'black',
                         strokeWidth: 2,
                   });
+
+                  exercise.targetMethods.push(umlMethods)
+
+                  
                   
                   var umlAttributes = new Konva.Rect({
                       width: 130,
@@ -521,12 +408,16 @@ textarea.addEventListener('keydown', function (e) {
                       y:25,
                       name: 'umlChild',
                       cornerRadius:[0,0,10,10],
+                      childOf:umlClass,
                       stroke: 'black',
                         strokeWidth: 2,
+                        droppedMethods:[],
                   });
 
+                  exercise.targetAttributes.push(umlAttributes)
+
                   var umlHeaderText = new Konva.Text({
-                        text:'UML Class',
+                        text:name,
                         fontSize: 18,
                         fontFamily: 'Calibri',
                         fill: '#000',
@@ -546,6 +437,7 @@ textarea.addEventListener('keydown', function (e) {
                         padding: 5,
                         align: 'center',
                         name: 'umlChild',
+                        
                         isHeader:false,
 
                     });
@@ -586,20 +478,165 @@ textarea.addEventListener('keydown', function (e) {
                   umlClass.classObj = classObj
                   
                   renderClass(umlClass)
-                  layer.add(umlClass)
+                  exercise.layer.add(umlClass)
                   return umlClass;
                   
                   
                 }
+
+                function genAttributeBlock(text, x, y) {
+                  var umlAttribute = new Konva.Group({
+                        x: x, 
+                        y: y, 
+                        width: 130,
+                        height: 25,
+                        name: 'rect',
+                        draggable:true,
+                        stroke: 'black',
+                        
+                        strokeWidth: 4,
+                        
+                    }); 
+
+                    var umlAttributeText = new Konva.Text({
+                        text:text,
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                        isHeader:false
+                    });
+
+                  
+                  var attribute1 = new Konva.Rect({
+                      width: 130,
+                      height: 25,
+                      fill: 'lightpink',
+                      height: umlAttributeText.height(),
+                      name: 'umlChild',
+                      cornerRadius:[10,10,10,10],
+                      stroke: 'black',
+                        strokeWidth: 2,
+                        
+                  });
+
+                  umlAttribute.add(attribute1)
+                  umlAttribute.add(umlAttributeText)
+
+                  umlAttribute.attrs.rect = attribute1
+                  umlAttribute.height(attribute1.height())
+                  umlAttribute.on('dragend', function () {
+                  
+
+                  addToNearbyMethods(umlAttribute, exercise.targetAttributes)
+              
+                    /*
+                  setTimeout(function () {
+                    umlAttribute.draggable(false);
+                  }, 50);**/
                 
-                var a = genClass()
-                var b = genClass()
-                genClass()
+              });                  
+
+              exercise.layer.add(umlAttribute)
+
+                }
+                
+                function genMethodBlock(text, x, y) {
+
+                  var umlMethod = new Konva.Group({
+                        x: x, 
+                        y: y, 
+                        width: 150,
+                        height: 25,
+                        name: 'rect',
+                        draggable:true,
+
+                        
+                        
+                    }); 
+
+                    var umlMethodText = new Konva.Text({
+                        text:text,
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                        isHeader:false
+                    });
+
+                  
+                  var umlMethod1 = new Konva.Rect({
+                      width: 128,
+                      height: umlMethodText.height(),
+                      fill: 'orange',
+  
+                      name: 'umlChild',
+              
+                      stroke: 'black',
+                        strokeWidth: 2,
+                        
+                  });
+
+                  umlMethod.add(umlMethod1)
+                  umlMethod.add(umlMethodText)
+                  umlMethod.attrs.rect = umlMethod1
+
+                  
+                  umlMethod.on('dragend', function () {
+                  
+
+                addToNearbyMethods(umlMethod, exercise.targetMethods)
+            
+                    /**
+                setTimeout(function () {
+                  umlMethod.draggable(false);
+                }, 50);*/
+              
+            });                  
+
+            exercise.layer.add(umlMethod)
+                  umlMethod.height(umlMethodText.height())
+
+                }
+
+                function addToNearbyMethods(umlAttribute, targets) {
+                      
+                    for (target in targets) {
+           
+                      var a = umlAttribute;
+                      var o = targets[target].absolutePosition();
+                      var ax = a.absolutePosition().x;
+                      var ay = a.absolutePosition().y;
+        
+
+                      if (ax > o.x - 20 && ax < o.x + 20 && ay > o.y - 20 && ay < o.y + 20) {
+                        addToField(umlAttribute, targets[target])
+                        return true;
+                        
+                      } 
+                      }
+                      return false
+
+                    }
+                
+                function addToField(umlObject, targetField) {
+                  targetField.attrs.droppedMethods.push(umlObject)
+                  renderClass(targetField.attrs.childOf)
+                  //renderClassField(targetField)
+                  
+
+                }
 
 
                 function genRelationship() {
 
-                
+                  var x1, y1, x2, y2;
                   var quadLinePath = new Konva.Line({
                   dash: [10, 10, 0, 10],
                   strokeWidth: 3,
@@ -711,20 +748,44 @@ textarea.addEventListener('keydown', function (e) {
                 layer.add(umlRelationship)
                 }
 
-                genRelationship()
-                genRelationship()
+                //genRelationship()
+                //genRelationship()
+
+                
+                let width = exercise.width
+                if (width>=638) {
+                var a = genClass("lightblue", (width*0.1)|0, 10, "Cat")
+                var b = genClass("lightgreen",(((width*0.9) | 0)-135),10, "Dog")
+             
+                } else {
 
 
-                function hideAllAnchors() {
-                  for (relationship in umlRelationships) {
-                    console.log(umlRelationships[relationship])
-                    umlRelationships[relationship].attrs.anchors.start.visible(false)
-                    umlRelationships[relationship].attrs.anchors.control.visible(false)
-                    umlRelationships[relationship].attrs.anchors.end.visible(false)
-                  }
-                }
+               
+                
+                var a = genClass("lightblue", 1, 10, "Cat")
+                var b = genClass("lightgreen", width-135 ,10, "Dog")
 
-                hideAllAnchors()
+              }
+
+                genAttributeBlock("+ Name : str", 1,300)
+                genAttributeBlock("+ Name : str", (width-130)/2,270)
+                genAttributeBlock("- Retractable claws : phy", (width-130)/2,240)
+                genAttributeBlock("- Man's best friend : str", (width-130)/2,210)
+
+
+                genMethodBlock("+ Bark() : noise", (width-130)/2, 10)
+                genMethodBlock("+ Meow() : noise", (width-130)/2, 45)
+                genMethodBlock("+ Play() : act", (width-130)/2, 95)
+                genMethodBlock("+ Fight() : act", (width-130)/2, 135)
+                genMethodBlock("+ Play() : act", (width-130)/2, 175)
+                genMethodBlock("+ Fight() : act", (width-130)/2, 185)
+
+        
+
+                
+
+
+
 
 
 
@@ -746,6 +807,7 @@ textarea.addEventListener('keydown', function (e) {
 
 
           </div>
+        </div>
           <!-- END example-->
 
         </main>

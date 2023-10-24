@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Learning Homepage</title>
+    <title>404</title>
 
     <!-- Bootstrap  CSS -->
     <link href="../assets/bootstrap.min.css" rel="stylesheet">
@@ -21,46 +21,43 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md fixed-top border-bottom border-light navbar-light" style="background-color:#C5D5EA">
-      <a class="navbar-brand" href="index.html">
-        <img src="./img/bootstrap-solid.svg" width="60" height="60" class="d-inline-block align-middle" alt="">
+    <nav class="navbar navbar-expand-md fixed-top border-bottom border-light navbar-light" id="nav">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/logo.svg" width="60" height="60" class="d-inline-block align-middle" alt="Bit & Byte logo" >
         Home
       </a>
 
   
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapseSection" aria-controls="navCollapseSection" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <div class="collapse navbar-collapse" id="navCollapseSection">
         
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="Learning3.html">Learning <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="./Learning.html">Learning</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">UML Builder</a>
+            <a class="nav-link" href="./404.html">UML Builder</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="./404.html">Contact Us</a>
+              <a class="dropdown-item" href="./404.html">Reading List</a>
+              <a class="dropdown-item" href="./404.html">FAQ</a>
             </div>
           </li>
         </ul>
         
       
         <ul class="navbar-nav navbar-right">
-          <li class="nav-item"><a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"> <span class="fas fa-user"></span> Sign Up</a> </li>
-
-
-     
+          <li class="nav-item"><a class="nav-link" href="./404.html"><span class="fas fa-sign-in-alt"></span>Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="./404.html"> <span class="fas fa-user"></span> Sign Up</a> </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-1">
+        <form class="form-inline my-2 my-lg-1" id="shitForm" onsubmit="search()">
           <input class="form-control mr-sm-2" type="text" placeholder="Search..." aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -69,8 +66,9 @@
 
     </nav>
 
+
     <main role="main" style="background-color:#F9FCFF; padding:0; margin:0">
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center pt-5">
         <div class="flex-row">
           <div class="col d-flex justify-content-center align-items-center"><h1 class="display-3 border-right mr-2 pr-2">404</h1> <p class="lead display">We couldn't find quite find that</p> 
           </div>

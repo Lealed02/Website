@@ -3,6 +3,10 @@ body {
  background-color: #F9FCFF;
 }
 
+.navbar-brand {
+  font-size: 25px;
+ 
+}
 
 #nav {
   min-height: 80px;

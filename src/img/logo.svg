@@ -1,0 +1,11 @@
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_1" height="60" width="60" y="175.44066" x="182.28807" stroke="#000" fill="#fff"/>
+  <rect stroke-width="2" stroke="#000" rx="8" id="svg_4" height="56.47036" width="54.70566" y="2.50011" x="2.94129" fill="#888BD6"/>
+  <text transform="matrix(0.74445 0 0 0.599094 10.653 16.3204)" stroke="#000" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="50" stroke-width="0" id="svg_7" y="60.14694" x="16.10661" fill="#ffffff">B</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="50" stroke-width="0" id="svg_5" y="39.55879" x="9.41185" stroke="#000" fill="#000000">B</text>
+  <path id="svg_8" d="m26.68588,36.55618l3.02593,0l0,5.76368l-3.02593,0l0,-5.76368z" opacity="undefined" stroke-width="0" stroke="#000" fill="#ffffff"/>
+ </g>
+</svg>
