@@ -79,10 +79,10 @@
       </div>
     </div>
 
-      <div class="row col-12 navbar d-md-none navbar-light" id="secondNav">
+      <div style="background-color: rgb(127, 162, 185);" class="row col-12 navbar d-md-none navbar-light" id="secondNav">
 
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" id="sidebarCollapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="transform: rotate(90deg);"></span>
       </button>
 
@@ -98,7 +98,16 @@
 
     </nav>
 
-
+    <nav class="navbar d-md-none fixed-top" style ="margin-top:100px; padding:0 0 0 0; margin:800px 0 0;background-color: #a7bad3">
+      <div  class="container-fluid">
+      <div class="row">
+        <div class="col-12 d-flex">
+          <button type="button"  style="background-color: #506179; border: solid 1px #a9c8ee; border-radius: 25px;" data-toggle="collapse" data-target="#sidebar" aria-expanded="false">Course</button>
+          <span class="mr-auto ml-auto align-self-center">Chapter 1 > Classes</span>
+        </div>
+      </div>
+      </div>
+    </nav>
 
     <div class="container-fluid">
       <div class="row">
@@ -1378,12 +1387,6 @@ textarea.addEventListener('keydown', function (e) {
 
     <!-- Enable library functionality -->
     <script>
-      $(document).ready(function(){
-			$("#sidebarCollapse").on('click', function(){
-				$("#sidebar").toggleClass('active');
-			});
-		});
-
       $("#shitForm").submit(function(e) {
     e.preventDefault();
 });

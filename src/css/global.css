@@ -8,13 +8,18 @@ body {
  
 }
 
+
 #nav {
   min-height: 80px;
   max-height:80px;
-  /*max-height: 80px;*/
   background-color: #C5D5EA;
 }
 
+#mainNav {
+  min-height: 80px;
+  max-height:80px;
+  background-color: #C5D5EA;
+}
 
 @media  screen and (max-width: 767px) {
 
@@ -22,6 +27,14 @@ body {
     min-height: 80px;
     max-height:none;
   }
+
+  #mainNav {
+    min-height: 80px;
+    max-height:none;
+  }
+
+
+
 
 }
 

@@ -20,58 +20,75 @@
     
     <!-- Konva must be imported before page loaded -->
     <script src="../assets/konva.min.js"></script>
+    <script>
 
+
+
+    function search(){ 
+        window.location.replace("./404.html")
+      }; 
+    </script>
 
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-md fixed-top border-bottom border-light navbar-light" id="nav">
-      <a class="navbar-brand" href="index.html">
-        <img src="./img/bootstrap-solid.svg" width="60" height="60" class="d-inline-block align-middle" alt="">
+    <nav class="navbar navbar-expand-md fixed-top border-lg-bottom border-light navbar-light" id="nav">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/logo.svg" width="60" height="60" class="d-inline-block align-middle" alt="Bit & Byte logo" id="bigLogo">
+        <img src="./img/logo.svg" width="40" height="40" class="d-inline-block align-middle" alt="Bit & Byte logo" id = "smallLogo">
         Home
       </a>
 
   
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapseSection" aria-controls="navCollapseSection" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <div class="collapse navbar-collapse" id="navCollapseSection">
         
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="Learning3.html">Learning<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="./Learning.html">Learning<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">UML Builder</a>
+            <a class="nav-link" href="./404.html">UML Builder</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <a class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="./404.html">Contact Us</a>
+              <a class="dropdown-item" href="./404.html">Reading List</a>
+              <a class="dropdown-item" href="./404.html">FAQ</a>
             </div>
           </li>
         </ul>
         
       
         <ul class="navbar-nav navbar-right">
-          <li class="nav-item"><a class="nav-link" href="./404.html"><span class="fas fa-sign-in-alt"></span> Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="./404.html"><span class="fas fa-sign-in-alt"></span>Login</a></li>
           <li class="nav-item"><a class="nav-link" href="./404.html"> <span class="fas fa-user"></span> Sign Up</a> </li>
-
-
-     
         </ul>
 
-        <form class="form-inline my-2 my-lg-1">
+        <form class="form-inline my-2 my-lg-1" id="shitForm" onsubmit="search()">
           <input class="form-control mr-sm-2" type="text" placeholder="Search..." aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" href="./404.html" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
 
+  
 
+    </nav>
+
+    <nav class="navbar d-md-none fixed-top" style ="margin-top:100px; padding:0 0 0 0; margin:800px 0 0;background-color: #a7bad3">
+      <div  class="container-fluid">
+      <div class="row">
+        <div class="col-12 d-flex">
+          <button type="button"  style="background-color: #506179; border: solid 1px #a9c8ee; border-radius: 25px;">Course</button>
+          <span class="mr-auto ml-auto align-self-center">Chapter 1 > Classes</span>
+        </div>
+      </div>
+      </div>
     </nav>
 
     <div class="container-fluid">
@@ -80,13 +97,13 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link " href="./Learning.html">
                   <span data-feather="home"></span>
                   Learning Home <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./404.html">
                   <span data-feather="file"></span>
                   Introduction
                 </a>
@@ -96,8 +113,8 @@
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span >Chapter 1: Shapes</span>
-              <a class="d-flex align-items-center text-muted" href="#">
+              <span style="font-weight: bold; color:black">Chapter 1: Objects</span>
+              <a class="d-flex align-items-center text-muted" href="./404.html">
                 <span data-feather="plus-circle"></span>
               </a>
             </h6>
@@ -105,25 +122,25 @@
 
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link active" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
-                  Squares
+                  Classes 
+                </a> 
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./404.html">
+                  <span data-feather="file-text"></span>
+                  Methods
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Classes
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./404.html">
                   <span data-feather="file-text"></span>
                   Inheritance
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./404.html">
                   <span data-feather="file-text"></span>
                   Structure not behaviour
                 </a>
@@ -132,32 +149,32 @@
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Chapter 2: Relationships</span>
-              <a class="d-flex align-items-center text-muted" href="#">
+              <a class="d-flex align-items-center text-muted" href="./404.html">
                 <span data-feather="plus-circle"></span>
               </a>
             </h6>
 
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./404.html">
                   <span data-feather="file-text"></span>
                   Aggregation
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./404.html">
                   <span data-feather="file-text"></span>
                   Dependency
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./404.html">
                   <span data-feather="file-text"></span>
                   Composition
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="./404.html">
                   <span data-feather="file-text"></span>
                   Styles
                 </a>
@@ -176,17 +193,8 @@
 
           
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Squares</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
-              </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-              </button>
-            </div>
+            <h1 class="h2">Classes</h1>
+
           </div>
 
           <div class="d-flex align-items-center mb-3"><strong style="margin-right: 20px;" >Tasks</strong><button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> </div>
@@ -199,24 +207,30 @@
           <div class="container-fluid">
             <div class="row">
 
-              <div class="col" style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
+              <div class="col-12 pr-sm-1 pr-0 pl-sm-1 pl-0 " style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
                 <p><strong style="font-size: 30px;">Example</strong></p>
-                <P>Try to match the correct attributes to each class. Submit when you feel you're ready!</P>
+                <P>Here you see three classes, try and connect them together with the relationship lines and give them a name!</P>
 
                 <div class = "d-flex justify-content-between pl-3 pr-3" style="background-color: whitesmoke; border-radius: 20px 20px 0 0; color:rgb(71, 71, 71)">
                   
-                  <h1>Exercise 1</h1>
-              </div>
-              
+                  <h1>Title</h1>
+                  <span class="mr-auto align-self-center ml-2" data-feather="edit"></span>
 
                   
-                 
+                  <div class="headerIcons FUCK align-self-center mr-2" > <!-- just to place some constraints -->
+                    <i data-feather="save" alt="Container"></i>
+                  </div>
                   
-    
+                  <h5 class="align-self-center mr-4 interactiveHeaderButtons FUCK">Save</h5>
+                  <div class="headerIcons align-self-center mr-1" > <!-- just to place some constraints -->
+                    <i data-feather="folder" alt="Container"></i>
+                  </div>
+                  <h5 class="align-self-center mr-3 interactiveHeaderButtons">Load</h5>
+                </div>
 
 
                 
-                <div class = "border" style= "min-height: 500px; overflow: hidden; background-color: whitesmoke;" id="container"></div>
+                <div class = "border" role="application" style= "min-height: 500px; overflow: hidden; background-color: whitesmoke;" id="container"></div>
 
 
                 <div class = "d-flex pl-3 pr-3 flex-wrap flex-sm-row flex-column " style="background-color: whitesmoke; border-radius: 0 0 20px 20px; overflow-x:hidden; overflow-y:visible">
@@ -230,11 +244,542 @@
                   <p class=" mr-3" style="font-size: 2em;"> Share</p>
                 <script>
 
+                  
+                  const builder = {}
+                  // Setup canvas 
+                  builder.width = document.getElementById("container").offsetWidth;
+                  builder.height = document.getElementById("container").offsetHeight;
+                  builder.mobile = false;
+
+                  builder.umlClasses = [];
+                  builder.umlRelationships = [];
+            
+                  builder.stage = new Konva.Stage({
+                    container: 'container',
+                    width: builder.width,
+                    height: builder.height,
+                  });
+            
+                  builder.layer = new Konva.Layer();
+                  builder.rectX = builder.stage.width() / 2 - 50;
+                  builder.rectY = builder.stage.height() / 2 - 25;
+          
+
+                  function renderClass(umlRawClass) {
+
+                    var umlClass = umlRawClass.classObj
+                    
+                    // Render widths
+                    var width;
+                    
+
+                    // Render class header
+                    umlClass.headerText.width(umlClass.header.width());
+                    umlClass.header.height(umlClass.headerText.height());
+
+
+                    // Render class methods
+                    umlClass.methods.y(umlClass.header.height());
+                    umlClass.methodText.y(umlClass.methods.y())
+                    umlClass.methodText.width(umlClass.methods.width())
+                    umlClass.methods.height(umlClass.methodText.height())
+                    
+
+                    umlClass.attributes.y(umlClass.methods.y() + umlClass.methods.height())
+                    umlClass.attributeText.y(umlClass.attributes.y())
+                    umlClass.attributeText.width(umlClass.attributes.width())
+                    umlClass.attributes.height(umlClass.attributeText.height())
+
+                    // Render excess height
+                    
+                  }
+
+
+
+                    builder.tr = new Konva.Transformer();
+                    builder.layer.add(builder.tr);
+                    builder.tr.nodes([]);
+
+                    builder.stage.add(builder.layer);
+                  
+                    builder.selectionRectangle = new Konva.Rect({
+                    fill: 'rgba(0,0,255,0.5)',
+                    visible: false,
+                  });
+                  builder.layer.add(builder.selectionRectangle);
+
+                  var x1, y1, x2, y2;
+                  builder.stage.on('mousedown touchstart', (e) => {
+                    console.log(e.target)
+                    if (e.target.hasName("anchor") || e.target.attrs.relationship == true) {
+                      return;
+                    }
+                    hideAllAnchors()
+                    // do nothing if we mousedown on any shape
+                    if (e.target !== builder.stage) {
+                      return;
+                    }
+                    e.evt.preventDefault();
+                    x1 = builder.stage.getPointerPosition().x;
+                    y1 = builder.stage.getPointerPosition().y;
+                    x2 = builder.stage.getPointerPosition().x;
+                    y2 = builder.stage.getPointerPosition().y;
+
+                    builder.selectionRectangle.visible(true);
+                    builder.selectionRectangle.width(0);
+                    builder.selectionRectangle.height(0);
+                  });
+
+                  builder.stage.on('mousemove touchmove', (e) => {
+                    // do nothing if we didn't start selection
+                    if (!builder.selectionRectangle.visible()) {
+                      return;
+                    }
+                    e.evt.preventDefault();
+                    x2 = builder.stage.getPointerPosition().x;
+                    y2 = builder.stage.getPointerPosition().y;
+
+                    builder.selectionRectangle.setAttrs({
+                      x: Math.min(x1, x2),
+                      y: Math.min(y1, y2),
+                      width: Math.abs(x2 - x1),
+                      height: Math.abs(y2 - y1),
+                    });
+                  });
+
+                  builder.stage.on('mouseup touchend', (e) => {
+                    // do nothing if we didn't start selection
+                    if (!builder.selectionRectangle.visible()) {
+                      return;
+                    }
+                    e.evt.preventDefault();
+                    // update visibility in timeout, so we can check it in click event
+                    setTimeout(() => {
+                      builder.selectionRectangle.visible(false);
+                    });
+
+                    let shapes = builder.stage.find('.rect');
+                    builder.box = builder.selectionRectangle.getClientRect();
+                    let selected = shapes.filter((shape) =>
+                      Konva.Util.haveIntersection(builder.box, shape.getClientRect())
+                    );
+                    builder.tr.nodes(selected);
+                  });
+
+                  // clicks should select/deselect shapes
+                  builder.stage.on('click tap', function (e) {
+                    // if we are selecting with rect, do nothing
+                    if (builder.selectionRectangle.visible()) {
+                      return;
+                    }
+
+                    // if click on empty area - remove all selections
+                    if (e.target === builder.stage) {
+                      builder.tr.nodes([]);
+                      return;
+                    }
+
+                    // Check if the UmlClass was clicked, else do nothing
+                    if (e.target.hasName('umlChild')) {
+                      console.log(e.target)
+                      e.target = e.target.parent
+                    } {
+                      if (!e.target.hasName('rect')) {
+                      
+                      return;
+                    }
+
+                    }
+   
+
+                    // do we pressed shift or ctrl?
+                    const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
+                    const isSelected = builder.tr.nodes().indexOf(e.target) >= 0;
+
+                    if (!metaPressed && !isSelected) {
+                      // if no key pressed and the node is not selected
+                      // select just one
+                      builder.tr.nodes([e.target]);
+                    } else if (metaPressed && isSelected) {
+                      // if we pressed keys and node was selected
+                      // we need to remove it from selection:
+                      const nodes = builder.tr.nodes().slice(); // use slice to have new copy of array
+                      // remove node from array
+                      builder.nodes.splice(nodes.indexOf(e.target), 1);
+                      builder.tr.nodes(nodes);
+                    } else if (metaPressed && !isSelected) {
+                      // add the node into selection
+                      const nodes = builder.tr.nodes().concat([e.target]);
+                      builder.tr.nodes(nodes);
+                    }
+                  });
+
+
+                   editField = (e) => {
+                      // create textarea over canvas with absolute position
+
+        // first we need to find position for textarea
+        // how to find it?
+
+        // at first lets find position of text node relative to the stage:
+        var textPosition = e.target.getAbsolutePosition();
+
+// then lets find position of stage container on the page:
+var stageBox = builder.stage.container().getBoundingClientRect();
+
+// so position of textarea will be the sum of positions above:
+var areaPosition = {
+  x: stageBox.left + textPosition.x,
+  y: stageBox.top + textPosition.y,
+};
+
+// create textarea and style it
+var textarea = document.createElement('textarea');
+document.body.appendChild(textarea);
+
+textarea.value = e.target.text();
+if (!e.target.attrs.isHeader) {
+  e.target.align('left')
+}
+
+textarea.style.position = 'absolute';
+textarea.style.top = areaPosition.y + 'px';
+textarea.style.left = areaPosition.x + 'px';
+textarea.style.width = e.target.width();
+
+var targetField = e.target
+
+textarea.focus();
+
+textarea.addEventListener('keydown', function (e) {
+  // hide on enter
+  if (e.keyCode === 13) {
+    targetField.text(textarea.value);
+    document.body.removeChild(textarea);
+    renderClass(targetField.parent)
+  }
+});
+}
+                    
+
+                function genArrow() {
+                  var arrow = new Konva.Arrow({
+                            x: stage.width() / 4,
+                            y: stage.height() / 4,
+                            points: [0, 0, 100, 0],
+                            pointerLength: 20,
+                            pointerWidth: 20,
+                            fill: 'black',
+                            stroke: 'black',
+                            strokeWidth: 4,
+                            name:"rect",
+                            draggable:true,
+                          });
+                                      
+                        layer.add(arrow)
+                        return arrow
+                }
+
+                //genArrow()
+                //genArrow()
+
+
+
+
+
+                function genClass(headerColor) {
+
+                  if (typeof headerColor === 'undefined') { headerColor = 'white'; }
+                  var umlClass = new Konva.Group({
+                        x: 10, 
+                        y: 10, 
+                        width: 130,
+                        height: 25,
+                        name: 'rect',
+                        draggable: true,
+                        stroke: 'black',
+                        strokeWidth: 4,
+                        
+                    }); 
+
+                  var umlHeader = new Konva.Rect({
+                        width: 130,
+                        height: 25,
+                        fill: headerColor,
+                        name: 'umlChild',
+                        cornerRadius:[10,10,0,0],
+                        stroke: 'black',
+                        strokeWidth: 2,
+                    });
+
+                  var umlMethods = new Konva.Rect({
+                      width: 130,
+                      height: 25,
+                      fill: '#FAFAFA',
+                      y:25,
+                      name: 'umlChild',
+                      stroke: 'black',
+                        strokeWidth: 2,
+                  });
+                  
+                  var umlAttributes = new Konva.Rect({
+                      width: 130,
+                      height: 25,
+                      fill: '#F2F2F2',
+                      y:25,
+                      name: 'umlChild',
+                      cornerRadius:[0,0,10,10],
+                      stroke: 'black',
+                        strokeWidth: 2,
+                  });
+
+                  var umlHeaderText = new Konva.Text({
+                        text:'UML Class',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                        isHeader:true,
+                    });
+
+                    var umlMethodText = new Konva.Text({
+                        text:'UML Methods',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                        isHeader:false,
+
+                    });
+
+                    var umlAttributeText = new Konva.Text({
+                        text:'UML Attributes',
+                        fontSize: 18,
+                        fontFamily: 'Calibri',
+                        fill: '#000',
+                        width: 130,
+                        padding: 5,
+                        align: 'center',
+                        name: 'umlChild',
+                        isHeader:false
+                    });
+
+                  umlHeaderText.on('dblclick dbltap', (e) => editField(e))
+                  umlAttributeText.on('dblclick dbltap', (e) => editField(e))
+                  umlMethodText.on('dblclick dbltap', (e) => editField(e))
+
+                  umlClass.add(umlHeader)
+                  umlClass.add(umlHeaderText)
+                  umlClass.add(umlMethods)
+                  umlClass.add(umlMethodText)
+                  umlClass.add(umlAttributes)
+                  umlClass.add(umlAttributeText)
+
+                  var classObj = {
+                    class:umlClass,
+                    header:umlHeader,
+                    headerText:umlHeaderText,
+                    methods:umlMethods,
+                    methodText:umlMethodText,
+                    attributes:umlAttributes,
+                    attributeText:umlAttributeText
+                  }
+
+                  umlClass.classObj = classObj
+                  
+                  renderClass(umlClass)
+                  builder.layer.add(umlClass)
+                  return umlClass;
+                  
+                  
+                }
+                
+                var a = genClass()
+                var b = genClass()
+                genClass()
+
+
+                function genRelationship() {
+
+                
+                  var quadLinePath = new Konva.Line({
+                  dash: [10, 10, 0, 10],
+                  strokeWidth: 3,
+                  stroke: 'black',
+                  lineCap: 'round',
+                  id: 'quadLinePath',
+                  opacity: 0.3,
+                  points: [0, 0],
+                });
+                builder.layer.add(quadLinePath);
+
+                var quad = {
+                start: buildAnchor(60, 30),
+                control: buildAnchor(240, 110),
+                end: buildAnchor(80, 160),
+              };
+                
+              var quadraticLine = new Konva.Arrow({
+                stroke: 'black',
+                
+                strokeWidth: 4,
+                sceneFunc: (ctx, shape) => {
+                  ctx.beginPath();
+                  ctx.moveTo(quad.start.x(), quad.start.y());
+                  ctx.quadraticCurveTo(
+                    quad.control.x(),
+                    quad.control.y(),
+                    quad.end.x(),
+                    quad.end.y()
+                  );
+                  ctx.fillStrokeShape(shape);
+                },
+              });
+             
+
+
+              var umlRelationship = new Konva.Group({
+                    name: 'rect',
+                    draggable: true,
+                    relationship: true,
+
+                }); 
+
+              umlRelationship.add(quadraticLine);
+
+
+              function buildAnchor(x, y) {
+                var anchor = new Konva.Circle({
+                  x: x,
+                  name:"anchor",
+                  y: y,
+                  radius: 20,
+                  stroke: '#666',
+                  fill: '#ddd',
+                  strokeWidth: 2,
+                  draggable: true,
+                });
+
+                anchor.visible(false)
+                
+
+                // add hover styling
+                anchor.on('mouseover', function () {
+                  document.body.style.cursor = 'pointer';
+                  this.strokeWidth(4);
+                  //anchor.show()
+                  //this.show()
+                });
+
+                
+                anchor.on('mouseout', function () {
+                  document.body.style.cursor = 'default';
+                  anchor.hide()
+                  //this.hide()
+                  this.strokeWidth(2);
+                });
+
+                //anchor.on('dragmove', function () {
+                //  updateDottedLines();
+                //});
+                
+
+                return anchor;
+              }
+              umlRelationship.attrs.anchors = quad
+              umlRelationship.add(umlRelationship.attrs.anchors.start)
+              umlRelationship.add(umlRelationship.attrs.anchors.control)
+              umlRelationship.add(umlRelationship.attrs.anchors.end)
+              umlRelationship.on('mouseover', function () {
+                  quad.start.show()
+                  quad.control.show()
+                  quad.end.show()
+                });
+
+                umlRelationship.on('tap click', function() {
+                  quad.start.show()
+                  quad.control.show()
+                  quad.end.show()
+                });
+
+
+                umlRelationship.on('mouseout', function() {
+                  quad.start.hide()
+                  quad.control.hide()
+                  quad.end.hide()
+                });
+
+                builder.umlRelationships.push(umlRelationship)
+                builder.layer.add(umlRelationship)
+                }
+
+                genRelationship()
+                genRelationship()
+
+
+                function hideAllAnchors() {
+                  for (relationship in builder.umlRelationships) {
+                    console.log(builder.umlRelationships[relationship])
+                    builder.umlRelationships[relationship].attrs.anchors.start.visible(false)
+                    builder.umlRelationships[relationship].attrs.anchors.control.visible(false)
+                    builder.umlRelationships[relationship].attrs.anchors.end.visible(false)
+                  }
+                }
+
+                hideAllAnchors()
+
+
+
+
+
+
+
+
+ //layer.add(quadraticLine);
+
+       
+                   
+                </script>
+
+
+              </div>
+
+            </div>
+
+
+          </div>
+          
+    
+            <div class="row mt-4">
+
+              <div class="col-12 pr-sm-1 pr-0 pl-sm-1 pl-0" style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
+                <p><strong style="font-size: 30px;">Example</strong></p>
+                <P>Try to match the correct attributes to each class. Submit when you feel you're ready!</P>
+
+                <div class = "d-flex justify-content-between pl-3 pr-3" style="background-color: whitesmoke; border-radius: 20px 20px 0 0; color:rgb(71, 71, 71)">
+                  
+                  <h1>Exercise 1</h1>
+              </div>
+                
+                <div class = "border" role="application" style= "min-height: 500px; overflow: hidden; background-color: whitesmoke;" id="container2"></div>
+
+
+                <div class = "d-flex pl-3 pr-3 flex-wrap flex-sm-row flex-column " style="background-color: whitesmoke; border-radius: 0 0 20px 20px; overflow-x:hidden; overflow-y:visible">
+
+                  <p class="ml-auto mr-3" style="font-size: 2em;"> Share</p>
+                <script>
+
                   const exercise = {}
 
                   // Setup canvas 
-                  exercise.width = document.getElementById("container").offsetWidth;
-                  exercise.height = document.getElementById("container").offsetHeight;
+                  exercise.width = document.getElementById("container2").offsetWidth;
+                  exercise.height = document.getElementById("container2").offsetHeight;
                   exercise.mobile = false;
 
                   exercise.umlClasses = [];
@@ -243,7 +788,7 @@
                   exercise.targetAttributes = []
             
                   exercise.stage = new Konva.Stage({
-                    container: 'container',
+                    container: 'container2',
                     width: exercise.width,
                     height: exercise.height,
                   });
@@ -251,7 +796,7 @@
                   exercise.layer = new Konva.Layer();
           
 
-                  function renderClass(umlRawClass) {
+                  function renderClass2(umlRawClass) {
 
                     var umlClass = umlRawClass.classObj
                     
@@ -355,7 +900,7 @@
                   exercise.stage.add(exercise.layer);
 
 
-                function genClass(headerColor, x, y, name, methods, attributes) {
+                function genClass2(headerColor, x, y, name, methods, attributes) {
 
                   if (typeof headerColor === 'undefined') { headerColor = 'white'; }
                   if (typeof x === 'undefined') { x = 10; }
@@ -477,7 +1022,7 @@
 
                   umlClass.classObj = classObj
                   
-                  renderClass(umlClass)
+                  renderClass2(umlClass)
                   exercise.layer.add(umlClass)
                   return umlClass;
                   
@@ -600,7 +1145,7 @@
               
             });                  
 
-            exercise.layer.add(umlMethod)
+                  exercise.layer.add(umlMethod)
                   umlMethod.height(umlMethodText.height())
 
                 }
@@ -627,7 +1172,7 @@
                 
                 function addToField(umlObject, targetField) {
                   targetField.attrs.droppedMethods.push(umlObject)
-                  renderClass(targetField.attrs.childOf)
+                  renderClass2(targetField.attrs.childOf)
                   //renderClassField(targetField)
                   
 
@@ -750,35 +1295,35 @@
 
                 //genRelationship()
                 //genRelationship()
-
+                var dX = 0;
+                var dY = 1000;
+      
                 
-                let width = exercise.width
-                if (width>=638) {
-                var a = genClass("lightblue", (width*0.1)|0, 10, "Cat")
-                var b = genClass("lightgreen",(((width*0.9) | 0)-135),10, "Dog")
+                if (exercise.width>=638) {
+                var a = genClass2("lightblue", (exercise.width*0.1)|0, 10, "Cat")
+                var b = genClass2("lightgreen",(((exercise.width*0.9) | 0)-135),10, "Dog")
              
                 } else {
 
 
-               
-                
-                var a = genClass("lightblue", 1, 10, "Cat")
-                var b = genClass("lightgreen", width-135 ,10, "Dog")
+                var a = genClass2("lightblue", 1, 10, "Cat")
+                var b = genClass2("lightgreen", exercise.width-135 ,10, "Dog")
 
               }
 
-                genAttributeBlock("+ Name : str", 1,300)
-                genAttributeBlock("+ Name : str", (width-130)/2,270)
-                genAttributeBlock("- Retractable claws : phy", (width-130)/2,240)
-                genAttributeBlock("- Man's best friend : str", (width-130)/2,210)
+                
+              genMethodBlock("+ Bark() : noise", 0, 240)
+              genMethodBlock("+ Meow() : noise", (exercise.width-130), 240)
 
 
-                genMethodBlock("+ Bark() : noise", (width-130)/2, 10)
-                genMethodBlock("+ Meow() : noise", (width-130)/2, 45)
-                genMethodBlock("+ Play() : act", (width-130)/2, 95)
-                genMethodBlock("+ Fight() : act", (width-130)/2, 135)
-                genMethodBlock("+ Play() : act", (width-130)/2, 175)
-                genMethodBlock("+ Fight() : act", (width-130)/2, 185)
+                genAttributeBlock("+ Name : str", (exercise.width-130),150)
+                genAttributeBlock("+ Name : str", 0,150)
+
+                genAttributeBlock("+ Man's best friend : phy", (exercise.width-130),185)
+                genAttributeBlock("+ Retractable claws : phy", 0,185)
+
+
+
 
         
 
@@ -806,8 +1351,9 @@
             </div>
 
 
+
           </div>
-        </div>
+          </div>
           <!-- END example-->
 
         </main>
@@ -822,6 +1368,11 @@
     
 
     <!-- Enable library functionality -->
+    <script>
+      $("#shitForm").submit(function(e) {
+    e.preventDefault();
+});
+    </script>
     <script>
       $(function () {
       $('[data-toggle="popover"]').popover()
