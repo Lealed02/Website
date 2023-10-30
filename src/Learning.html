@@ -7,7 +7,7 @@
     <meta name="author" content="">
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
- 
+    <link rel="icon" href="./img/logo.svg">
 
     <title>Learning Homepage</title>
 
@@ -26,9 +26,12 @@
 
   <body >
 
-    <nav class="navbar navbar-expand-md fixed-top border-bottom border-light navbar-light" id="nav" aria-label="main">
+    <nav class="container-fluid fixed-top"  id="nav" style=" margin:0;">
+
+      <div class="row col-12 navbar navbar-expand-md  border-lg-bottom border-light navbar-light" style="margin:0;" id ="mainNav">
       <a class="navbar-brand" href="./index.html">
-        <img src="./img/logo.svg" width="60" height="60" class="d-inline-block align-middle" alt="Bit & Byte logo" >
+        <img src="./img/logo.svg" width="60" height="60" class="d-inline-block align-middle" alt="Bit & Byte logo" id="bigLogo">
+        <img src="./img/logo.svg" width="40" height="40" class="d-inline-block align-middle" alt="Bit & Byte logo" id = "smallLogo">
         Home
       </a>
 
@@ -40,7 +43,7 @@
       <div class="collapse navbar-collapse" id="navCollapseSection">
         
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="./Learning.html">Learning<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
@@ -67,13 +70,29 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
+    </div>
 
+      <div class="row col-12 navbar d-md-none navbar-light" id="secondNav">
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" id="sidebarCollapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="transform: rotate(90deg);"></span>
+      </button>
+
+      
+      <span>  <ol class="breadcrumb" style="background-color:inherit; padding:0; margin:0;">
+        <li class="breadcrumb-item active"  aria-current="page" style="color:#112A46">Learning</li> 
+    
+      </ol></span>
+      <span></span>
+      </div>
+   
 
     </nav>
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar border-top " id ="sidebar">
+        <nav class="collapse navbar-collapse col-md-3 col-lg-2 d-block bg-light sidebar border-top " id ="sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -83,7 +102,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file"></span>
                   Introduction
                 </a>
@@ -93,7 +112,7 @@
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Chapter 1: Objects</span>
+              <span >Chapter 1: Objects</span>
               <a class="d-flex align-items-center text-muted" href="./404.html">
                 <span data-feather="plus-circle"></span>
               </a>
@@ -108,19 +127,19 @@
                 </a> 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Methods
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Inheritance
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Structure not behaviour
                 </a>
@@ -136,25 +155,25 @@
 
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Aggregation
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Dependency
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Composition
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Styles
                 </a>
@@ -169,27 +188,18 @@
 
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 col-12" style="padding-right: 0;" >
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 col-12"  >
 
           
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Your Learning Homepage</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
-              </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
-              </button>
-            </div>
+
           </div>
 
           
           <article class="container-fluid card mr-1" style="padding-bottom: 30px; margin-right: 10px;">
             <div></div>
-            <p class="lead display-3">Progress Tracker</p>
+            <p class="lead display-4" style="font-size: 3rem;">Progress Tracker</p>
             <div class="row">
 
               <div class="col" style="">
@@ -208,19 +218,19 @@
                     </div>
 
                     <div class="col chapButtons">
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." aria-haspopup="true" aria-label="Not attempted" >
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." aria-haspopup="true" role="status" aria-valuetext="Not Attempted">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." aria-haspopup="true">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." aria-haspopup="true">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." aria-haspopup="true">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." aria-haspopup="true">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." aria-haspopup="true">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
                     </div>
                   </div>
@@ -238,19 +248,19 @@
                     </div>
 
                     <div class="col chapButtons" >
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
                     </div>
                   </div>
@@ -273,33 +283,33 @@
                     </div>
 
                     <div class="col chapButtons">
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
                     </div>
                   </div>
@@ -317,19 +327,19 @@
                     </div>
 
                     <div class="col chapButtons" >
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
-                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="hover"  data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                      <button type="button" class="btn border border-dark chapButton btn-outline text-nowrap" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><a href='./Chapter1-Classes.html'>View </a>" aria-haspopup="true" aria-label="Not attempted" >
                       </button>
                     </div>
                   </div>
@@ -346,7 +356,7 @@
               <div class="row">
            
                 <div class="col-md-4">
-                  <div class="card h-100 card-stats mb-4 mb-xl-0">
+                  <div class="card mb-4 h-100 card-stats  mb-xl-1">
                     <div class="card-body">
                       <div class="row">
                         <div class="col text-center">
@@ -359,7 +369,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card h-100 card-stats mb-4 mb-xl-0">
+                  <div class="card h-100 mt-2 mt-md-0 card-stats mb-4 mb-xl-0">
                     <div class="card-body" style="height: 100%;">
                       <div class="row">
                         <div class="col text-center">
@@ -372,7 +382,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card h-100 card-stats mb-4 mb-xl-0">
+                  <div class="card h-100 mt-3 mt-md-0 card-stats mb-4 mb-xl-0 ">
                     <div class="card-body">
                       <div class="row">
                         <div class="col text-center">
@@ -404,8 +414,25 @@
 
     <!-- Enable library functionality -->
     <script>
+      function search(){ 
+    window.location.replace("./404.html")
+  }; 
+
+
+  $(document).ready(function(){
+  $("#sidebarCollapse").on('click', function(){
+    $("#sidebar").toggleClass('active');
+  });
+});
+
+  $("#shitForm").submit(function(e) {
+e.preventDefault();
+});
+</script>
+
+    <script>
       $(function () {
-      $('[data-toggle="popover"]').popover()
+      $('[data-toggle="popover"]').popover({html:true})
     })
   </script>
 

@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    
+    <link rel="icon" href="./img/logo.svg">
 
     <title>Learning Homepage</title>
 
@@ -22,11 +23,6 @@
     <script src="../assets/konva.min.js"></script>
     <script>
 
-
-
-    function search(){ 
-        window.location.replace("./404.html")
-      }; 
     </script>
 
   </head>
@@ -38,7 +34,7 @@
       <div class="row col-12 navbar navbar-expand-md  border-lg-bottom border-light navbar-light" style="margin:0;" id ="mainNav">
       <a class="navbar-brand" href="./index.html">
         <img src="./img/logo.svg" width="60" height="60" class="d-inline-block align-middle" alt="Bit & Byte logo" id="bigLogo">
-        <img src="./img/logo.svg" width="60" height="60" class="d-inline-block align-middle" alt="Bit & Byte logo" id = "smallLogo">
+        <img src="./img/logo.svg" width="40" height="40" class="d-inline-block align-middle" alt="Bit & Byte logo" id = "smallLogo">
         Home
       </a>
 
@@ -87,10 +83,10 @@
       </button>
 
       
-      <span>  <ol class="breadcrumb" style="background-color: rgb(151, 189, 214); padding:0; margin:0;">
-        <li class="breadcrumb-item"><a href="#">Home</a></li> 
-        <li class="breadcrumb-item"><a href="#">Library</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      <span>  <ol class="breadcrumb" style="background-color: inherit; padding:0; margin:0;">
+        <li class="breadcrumb-item"><a href="./Learning.html">Learning</a></li> 
+        <li class="breadcrumb-item">Chapter 1</li>
+        <li class="breadcrumb-item " aria-current="page">Data</li>
       </ol></span>
       <span></span>
       </div>
@@ -112,7 +108,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file"></span>
                   Introduction
                 </a>
@@ -137,19 +133,19 @@
                 </a> 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Methods
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Inheritance
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Structure not behaviour
                 </a>
@@ -165,25 +161,25 @@
 
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Aggregation
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Dependency
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Composition
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./404.html">
+                <a class="nav-link" href="./Chapter1-Classes.html">
                   <span data-feather="file-text"></span>
                   Styles
                 </a>
@@ -198,7 +194,7 @@
 
         </nav>
 
-        <main role="main" class=" col-md-9 ml-sm-auto col-lg-10 col-12" style="padding-right: 0;" >
+        <main role="main" class=" col-md-9 ml-sm-auto col-lg-10 col-12" style="padding-right: 5px; padding-left:5px" >
 
           
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
@@ -206,7 +202,10 @@
 
           </div>
 
-          <div class="d-flex align-items-center mb-3"><strong style="margin-right: 20px;" >Tasks</strong><button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> <button class="taskButton" style=""> </button> </div>
+          <div class="d-flex align-items-center mb-3"><strong style="margin-right: 20px;" >Tasks</strong>
+            <button class="taskButton mr-2" style="" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 1<br><p  class='jumpLink' onclick='scrollTowards(&quot;exercise1&quot;)'>View </p>" aria-haspopup="true" aria-label="Not attempted" > </button> 
+            <button class="taskButton" style="" data-trigger="focus hover"  data-toggle="popover" data-placement="top" data-content="Exercise 2<br><p  class='jumpLink' onclick='scrollTowards(&quot;exercise2&quot;)'>View </p>" aria-haspopup="true" aria-label="Not attempted" > </button> 
+              </div>
 
           <div class="jumbotron text-start" style="padding:20px">
             Morbi nec tortor vulputate, fringilla turpis quis, ultricies lorem. Cras at mi blandit nisi pharetra venenatis dignissim non risus. Ut faucibus eros eget massa pellentesque dignissim. Mauris euismod vel elit vel faucibus. Sed augue nisl, feugiat in faucibus quis, sollicitudin id orci. Fusce volutpat, turpis id aliquet mollis, augue orci sagittis erat, id fermentum arcu enim sed neque. Nulla porttitor sem sit amet ipsum consequat, nec auctor sapien feugiat. Aliquam leo eros, luctus dictum lectus at, placerat aliquet nulla.
@@ -216,23 +215,23 @@
           <div class="container-fluid">
             <div class="row">
 
-              <div class="col-12 pr-sm-1 pr-0 pl-sm-1 pl-0 " style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
+              <div class="col-12 pr-sm-1 pr-0 pl-sm-1 pl-0 " id="exercise1" style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
                 <p><strong style="font-size: 30px;">Example</strong></p>
                 <P>Here you see three classes, try and connect them together with the relationship lines and give them a name!</P>
 
                 <div class = "d-flex justify-content-between pl-3 pr-3" style="background-color: whitesmoke; border-radius: 20px 20px 0 0; color:rgb(71, 71, 71)">
                   
-                  <h1>Title</h1>
+                  <h1>Exercise 1</h1>
                   <span class="mr-auto align-self-center ml-2" data-feather="edit"></span>
 
                   
-                  <div class="headerIcons FUCK align-self-center mr-2" > <!-- just to place some constraints -->
-                    <i data-feather="save" alt="Container"></i>
+                  <div class="headerIcons align-self-center mr-2" > <!-- just to place some constraints -->
+                    <img src="../assets/ico/save.svg"></img>
                   </div>
                   
                   <h5 class="align-self-center mr-4 interactiveHeaderButtons FUCK">Save</h5>
                   <div class="headerIcons align-self-center mr-1" > <!-- just to place some constraints -->
-                    <i data-feather="folder" alt="Container"></i>
+                    <img src="../assets/ico/folder.svg"></img>
                   </div>
                   <h5 class="align-self-center mr-3 interactiveHeaderButtons">Load</h5>
                 </div>
@@ -242,15 +241,14 @@
                 <div class = "border" role="application" style= "min-height: 500px; overflow: hidden; background-color: whitesmoke;" id="container"></div>
 
 
-                <div class = "d-flex pl-3 pr-3 flex-wrap flex-sm-row flex-column " style="background-color: whitesmoke; border-radius: 0 0 20px 20px; overflow-x:hidden; overflow-y:visible">
-
-                  <p style="font-size: 2em;" class="mr-3">Entities </p> 
-                  <p style="font-size: 2em;" class="mr-auto">Relationships</p>
-                  <br>
+                <div class = "d-flex pl-3 pr-3 flex-nowrap flex-row" style="background-color: whitesmoke; border-radius: 0 0 20px 20px; overflow-x:hidden; overflow-y:visible">
+                  <button  class="builderWidget mr-2">Entities</button>
+                  <button  class="builderWidget mr-auto">Relationships</button>
+      
                   <div class="headerIcons mr-1" style="height:20px; width:20px;"> <!-- just to place some constraints -->
                     <i data-feather="share" alt="Container"></i>
                   </div>
-                  <p class=" mr-3" style="font-size: 2em;"> Share</p>
+                  <p class="flex-column" style="font-size: 2em;"> Share</p>
                 <script>
 
                   
@@ -318,11 +316,9 @@
                   builder.layer.add(builder.selectionRectangle);
 
                   var x1, y1, x2, y2;
-                  builder.stage.on('mousedown touchstart', (e) => {
+                  builder.stage.on('mousedown touchhold', (e) => {
                     console.log(e.target)
-                    if (e.target.hasName("anchor") || e.target.attrs.relationship == true) {
-                      return;
-                    }
+
                     hideAllAnchors()
                     // do nothing if we mousedown on any shape
                     if (e.target !== builder.stage) {
@@ -377,6 +373,10 @@
 
                   // clicks should select/deselect shapes
                   builder.stage.on('click tap', function (e) {
+                    if (e.target.hasName("anchor") || e.target.attrs.relationship == true) {
+                      return;
+                    }
+
                     // if we are selecting with rect, do nothing
                     if (builder.selectionRectangle.visible()) {
                       return;
@@ -767,13 +767,13 @@ textarea.addEventListener('keydown', function (e) {
     
             <div class="row mt-4">
 
-              <div class="col-12 pr-sm-1 pr-0 pl-sm-1 pl-0" style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
+              <div class="col-12 pr-sm-1 pr-0 pl-sm-1 pl-0" id="exercise2" style="background-color: #a9c8ee; border: 3px solid #637d9c; border-radius: 20px; color:black; ">
                 <p><strong style="font-size: 30px;">Example</strong></p>
                 <P>Try to match the correct attributes to each class. Submit when you feel you're ready!</P>
 
                 <div class = "d-flex justify-content-between pl-3 pr-3" style="background-color: whitesmoke; border-radius: 20px 20px 0 0; color:rgb(71, 71, 71)">
                   
-                  <h1>Exercise 1</h1>
+                  <h1>Exercise 2</h1>
               </div>
                 
                 <div class = "border" role="application" style= "min-height: 500px; overflow: hidden; background-color: whitesmoke;" id="container2"></div>
@@ -1378,19 +1378,40 @@ textarea.addEventListener('keydown', function (e) {
 
     <!-- Enable library functionality -->
     <script>
+      function scrollTowards( element) {
+        
+        document.getElementById(element).scrollIntoView({behavior:"smooth"});
+        return false
+      }
+
+          function search(){ 
+        window.location.replace("./404.html")
+      }; 
+
+
       $(document).ready(function(){
+
 			$("#sidebarCollapse").on('click', function(){
 				$("#sidebar").toggleClass('active');
 			});
+
+      $(".jumpLink").each(function(e) {
+      console.log("OIOI")
+      e.preventDefault();
+    })
+
 		});
+
+
+
 
       $("#shitForm").submit(function(e) {
     e.preventDefault();
-});
+    });
     </script>
     <script>
       $(function () {
-      $('[data-toggle="popover"]').popover()
+      $('[data-toggle="popover"]').popover({html:true})
     })
   </script>
    <!-- Icons -->
